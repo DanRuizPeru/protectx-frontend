@@ -49,5 +49,26 @@
     "hist": "Historial",
     "confg": "Configuracion",
     "logout": "Cerrar Sesion"
+  },
+  "home": {
+    "welcome": "Bienvenido",
+    "prev": "Se han recibido",
+    "post": "alertas desde la ultima revision",
+    "p": "Tu hogar esta seguro",
+    "cams": "Gestionar Camaras",
+    "community": "Comunidad",
+    "alerts": "Alertas",
+    "sens": "Gestionar Sensores"
+  },
+  "settings": {
+    "profile": "Profile",
+    "suport": "Asistance",
+    "security": "Security"
+  },
+  "assistance": {
+    "nav": {
+      "freques": "Preguntas Frequentes",
+      "humassist": "Asistencia Personal"
+    }
   }
 }

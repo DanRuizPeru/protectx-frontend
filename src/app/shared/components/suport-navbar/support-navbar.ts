@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
+import {Router, RouterLink} from '@angular/router';
 import {LanguageSwitcher} from '../language-switcher/language-switcher';
 import {TranslatePipe} from '@ngx-translate/core';
-import {Router, RouterLink} from '@angular/router';
 
 @Component({
-  selector: 'app-navbar-component',
-    imports: [LanguageSwitcher, TranslatePipe, RouterLink],
+  selector: 'app-suport-navbar',
+  imports: [LanguageSwitcher, TranslatePipe, RouterLink],
   standalone: true,
-  templateUrl: './navbar-component.html',
-  styleUrl: './navbar-component.css'
+  templateUrl: './support-navbar.html',
+  styleUrl: './support-navbar.css'
 })
-export class NavbarComponent {
+export class SupportNavbar {
   constructor(private router: Router) {}
   logout() {
     localStorage.clear(); // elimina todos los datos guardados
