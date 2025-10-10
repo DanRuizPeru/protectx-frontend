@@ -1,0 +1,12 @@
+.login-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  background-color: white;
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 900px;
+  margin: 4rem auto;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  align-items: start;
+}

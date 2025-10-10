@@ -2,6 +2,10 @@
   "login": {
     "username": "Nombre de Usuario",
     "password": "Contrasenia",
-    "submit": "Ingresar"
+    "submit": "Ingresar",
+    "welcome": "Bienvenido a Sentinel",
+    "lgwith": "Inicia sesion con ",
+    "regquestion": "¿No tienes una cuenta?",
+    "register": "Registrate Ahora"
   }
 }

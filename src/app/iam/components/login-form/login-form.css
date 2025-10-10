@@ -9,6 +9,7 @@
   max-width: 900px;
   margin: 4rem auto;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  align-items: start;
 }
 
 /* Columna izquierda (info) */
@@ -93,6 +94,8 @@
   font-weight: 500;
 }
 
+
+
 /* Formulario */
 .login-form {
   display: flex;
@@ -135,8 +138,9 @@
     text-align: center;
   }
 }
-
 .logo {
-  height: 60px;
-  width: auto;
+  width: 150px; /* o el tamaño que prefieras */
+  height: auto; /* mantiene la proporción */
 }
+
+

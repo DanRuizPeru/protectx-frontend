@@ -2,6 +2,10 @@
   "login": {
     "username": "Username",
     "password": "Password",
-    "submit": "LogIn"
+    "submit": "LogIn",
+    "welcome": "Welcome to Sentinel",
+    "lgwith": "Log-In with",
+    "regquestion": "You dont't have an account?",
+    "register": "Register Now"
   }
 }
