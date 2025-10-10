@@ -1,0 +1,20 @@
+<header class="header">
+  <div class="brand">
+    <img src="logo.png" alt="Sentinel logo" class="logo" />
+    <h2>Sentinel</h2>
+    <nav>
+      <a>{{'navbar.home' | translate}}</a>
+      <a>{{'navbar.cams' | translate}}</a>
+      <a>{{'navbar.sens' | translate}}</a>
+      <a>{{'navbar.hist' | translate}}</a>
+      <a>{{'navbar.confg' | translate}}</a>
+    </nav>
+  </div>
+
+  <div class="actions">
+    <app-language-switcher></app-language-switcher>
+    <button class="logout-btn" (click)="logout()">
+      {{ 'navbar.logout' | translate }}
+    </button>
+  </div>
+</header>

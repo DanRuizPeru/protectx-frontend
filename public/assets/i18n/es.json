@@ -41,7 +41,13 @@
       "errReq": "Tu correo",
       "errLen": "tiene un formato invalido"
     }
-
-
+  },
+  "navbar": {
+    "home": "Inicio",
+    "cams": "Camaras",
+    "sens": "Sensores",
+    "hist": "Historial",
+    "confg": "Configuracion",
+    "logout": "Cerrar Sesion"
   }
 }

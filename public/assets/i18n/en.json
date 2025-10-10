@@ -41,7 +41,13 @@
       "errReq": "Your email",
       "errLen": "has an invalid format"
     }
-
-
+  },
+  "navbar": {
+    "home": "Home",
+    "cams": "Camaras",
+    "sens": "Sensors",
+    "hist": "History",
+    "confg": "Settings",
+    "logout": "Log Out"
   }
 }
