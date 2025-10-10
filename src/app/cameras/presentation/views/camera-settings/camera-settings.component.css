@@ -1,0 +1,168 @@
+.camera-settings {
+  padding: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.settings-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.btn-back {
+  background: #95a5a6;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-back:hover {
+  background: #7f8c8d;
+}
+
+.settings-header h1 {
+  color: #2c3e50;
+  margin: 0;
+}
+
+.camera-info-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #ecf0f1;
+}
+
+.status-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.status-badge.online {
+  background: #d5f4e6;
+  color: #27ae60;
+}
+
+.status-badge.recording {
+  background: #fadbd8;
+  color: #e74c3c;
+}
+
+.status-badge.offline {
+  background: #f2f3f4;
+  color: #95a5a6;
+}
+
+.settings-section {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.settings-section h3 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #ecf0f1;
+  padding-bottom: 0.5rem;
+}
+
+.setting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0.75rem 0;
+}
+
+.setting-label {
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.setting-options {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-option {
+  padding: 0.5rem 1rem;
+  border: 2px solid #bdc3c7;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-option.active {
+  background: #3498db;
+  color: white;
+  border-color: #3498db;
+}
+
+.btn-option:hover:not(.active) {
+  border-color: #3498db;
+}
+
+/* Toggle Switch */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+  background-color: #27ae60;
+}
+
+input:checked + .toggle-slider:before {
+  transform: translateX(26px);
+}
+
+.not-found {
+  text-align: center;
+  padding: 3rem;
+  color: #7f8c8d;
+}

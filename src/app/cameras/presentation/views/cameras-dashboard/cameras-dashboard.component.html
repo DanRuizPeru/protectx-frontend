@@ -1,0 +1,75 @@
+<div class="cameras-dashboard">
+  <header class="dashboard-header">
+    <h1>{{ 'CAMERAS.TITLE' | translate }}</h1>
+    <p>{{ 'CAMERAS.SUBTITLE' | translate }}</p>
+  </header>
+
+  <!-- Loading State -->
+  @if (loading()) {
+    <div class="loading">
+      {{ 'COMMON.LOADING' | translate }}
+    </div>
+  }
+
+  <!-- Cameras Grid -->
+  @if (!loading()) {
+    <div class="cameras-grid">
+      @for (camera of cameras(); track camera.id) {
+        <div class="camera-card">
+          <div class="camera-header">
+            <span class="status-indicator" [class]="camera.status"></span>
+            <h3>{{ camera.name }}</h3>
+            <span class="status-icon">{{ getStatusIcon(camera) }}</span>
+          </div>
+
+          <div class="camera-preview">
+            <div class="video-placeholder">
+              @if (camera.status === 'offline') {
+                <span class="offline-message">
+                  {{ 'CAMERAS.OFFLINE' | translate }}
+                </span>
+              }
+              @if (camera.status === 'recording') {
+                <span class="recording-indicator">
+                  🔴 {{ 'CAMERAS.RECORDING' | translate }}
+                </span>
+              }
+            </div>
+          </div>
+
+          <div class="camera-info">
+            <div class="info-row">
+              <span class="label">{{ 'CAMERAS.RESOLUTION' | translate }}:</span>
+              <span class="value">{{ camera.resolution }}</span>
+            </div>
+            <div class="info-row">
+              <span class="label">{{ 'CAMERAS.NIGHT_VISION' | translate }}:</span>
+              <span class="value">{{ camera.nightVision ? 'ON' : 'OFF' }}</span>
+            </div>
+            <div class="info-row">
+              <span class="label">{{ 'CAMERAS.MOTION_DETECTION' | translate }}:</span>
+              <span class="value">{{ camera.motionDetection ? 'ACTIVE' : 'INACTIVE' }}</span>
+            </div>
+          </div>
+
+          <div class="camera-actions">
+            <button
+              class="btn-config"
+              [routerLink]="['/cameras', camera.id, 'config']">
+              ⚙️ {{ 'CAMERAS.CONFIGURE' | translate }}
+            </button>
+          </div>
+        </div>
+      }
+    </div>
+  }
+
+  <!-- Empty State -->
+  @if (!loading() && cameras().length === 0) {
+    <div class="empty-state">
+      <h3>{{ 'CAMERAS.NO_CAMERAS' | translate }}</h3>
+      <p>{{ 'CAMERAS.ADD_FIRST_CAMERA' | translate }}</p>
+      <button class="btn-primary">{{ 'CAMERAS.ADD_CAMERA' | translate }}</button>
+    </div>
+  }
+</div>

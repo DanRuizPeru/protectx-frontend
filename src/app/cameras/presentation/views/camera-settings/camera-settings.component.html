@@ -1,0 +1,73 @@
+<div class="camera-settings">
+  <header class="settings-header">
+    <button routerLink="/cameras" class="btn-back">← {{ 'COMMON.BACK' | translate }}</button>
+    <h1>{{ 'SETTINGS.TITLE' | translate }}</h1>
+  </header>
+
+  @if (camera) {
+    <div class="settings-content">
+      <div class="camera-info-header">
+        <h2>{{ camera.name }}</h2>
+        <span class="status-badge" [class]="camera.status">
+          {{ camera.status | uppercase }}
+        </span>
+      </div>
+
+      <!-- Video Settings -->
+      <section class="settings-section">
+        <h3>{{ 'SETTINGS.VIDEO' | translate }}</h3>
+
+        <div class="setting-row">
+          <label class="setting-label">{{ 'SETTINGS.RESOLUTION' | translate }}</label>
+          <div class="setting-options">
+            <button
+              class="btn-option"
+              [class.active]="camera.resolution === 'high'"
+              (click)="updateResolution('high')">
+              {{ 'SETTINGS.HIGH' | translate }}
+            </button>
+            <button
+              class="btn-option"
+              [class.active]="camera.resolution === 'low'"
+              (click)="updateResolution('low')">
+              {{ 'SETTINGS.LOW' | translate }}
+            </button>
+          </div>
+        </div>
+
+        <div class="setting-row">
+          <label class="setting-label">{{ 'SETTINGS.NIGHT_VISION' | translate }}</label>
+          <div class="toggle-switch">
+            <input
+              type="checkbox"
+              id="nightVision"
+              [checked]="camera.nightVision"
+              (change)="toggleNightVision()">
+            <label for="nightVision" class="toggle-slider"></label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Detection Settings -->
+      <section class="settings-section">
+        <h3>{{ 'SETTINGS.DETECTION' | translate }}</h3>
+
+        <div class="setting-row">
+          <label class="setting-label">{{ 'SETTINGS.MOTION_DETECTION' | translate }}</label>
+          <div class="toggle-switch">
+            <input
+              type="checkbox"
+              id="motionDetection"
+              [checked]="camera.motionDetection"
+              (change)="toggleMotionDetection()">
+            <label for="motionDetection" class="toggle-slider"></label>
+          </div>
+        </div>
+      </section>
+    </div>
+  } @else {
+    <div class="not-found">
+      <p>{{ 'SETTINGS.CAMERA_NOT_FOUND' | translate }}</p>
+    </div>
+  }
+</div>

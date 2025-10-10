@@ -35,5 +35,37 @@
       "email": "lisbon@gmail.com",
       "id": 5
     }
+  ],
+  "cameras": [
+    {
+      "id": 1,
+      "name": "Cam 01",
+      "status": "online",
+      "resolution": "high",
+      "nightVision": true,
+      "motionDetection": true,
+      "lastRecording": "2024-01-15T10:30:00Z",
+      "location": "Entrada Principal"
+    },
+    {
+      "id": 2,
+      "name": "Cam 02",
+      "status": "recording",
+      "resolution": "low",
+      "nightVision": false,
+      "motionDetection": true,
+      "lastRecording": "2024-01-15T10:25:00Z",
+      "location": "Sala de Estar"
+    },
+    {
+      "id": 3,
+      "name": "Cam 03",
+      "status": "offline",
+      "resolution": "high",
+      "nightVision": true,
+      "motionDetection": false,
+      "lastRecording": "2024-01-14T18:45:00Z",
+      "location": "Cocina"
+    }
   ]
 }

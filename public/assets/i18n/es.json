@@ -49,5 +49,37 @@
     "hist": "Historial",
     "confg": "Configuracion",
     "logout": "Cerrar Sesion"
+  },
+  "CAMERAS": {
+    "TITLE": "Cámaras",
+    "SUBTITLE": "Gestión y monitoreo de cámaras de seguridad",
+    "ONLINE": "En línea",
+    "OFFLINE": "Desconectada",
+    "RECORDING": "Grabando",
+    "RESOLUTION": "Resolución",
+    "NIGHT_VISION": "Visión nocturna",
+    "MOTION_DETECTION": "Detección de movimiento",
+    "CONFIGURE": "Configurar",
+    "NO_CAMERAS": "No hay cámaras configuradas",
+    "ADD_FIRST_CAMERA": "Agrega tu primera cámara para comenzar el monitoreo",
+    "ADD_CAMERA": "Agregar Cámara"
+  },
+  "COMMON": {
+    "LOADING": "Cargando..."
+  },
+
+  "SETTINGS": {
+    "TITLE": "Configuración",
+    "VIDEO": "Video",
+    "DETECTION": "Detección",
+    "RESOLUTION": "Resolución",
+    "NIGHT_VISION": "Visión nocturna",
+    "MOTION_DETECTION": "Detección de movimiento",
+    "HIGH": "Alta",
+    "LOW": "Baja",
+    "CAMERA_NOT_FOUND": "Cámara no encontrada"
+  },
+  "COMMON": {
+    "BACK": "Regresar"
   }
 }

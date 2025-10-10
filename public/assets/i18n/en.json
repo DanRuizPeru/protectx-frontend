@@ -49,5 +49,34 @@
     "hist": "History",
     "confg": "Settings",
     "logout": "Log Out"
+  },
+  "CAMERAS": {
+    "TITLE": "Cameras",
+    "SUBTITLE": "Security camera management and monitoring",
+    "ONLINE": "Online",
+    "OFFLINE": "Offline",
+    "RECORDING": "Recording",
+    "RESOLUTION": "Resolution",
+    "NIGHT_VISION": "Night Vision",
+    "MOTION_DETECTION": "Motion Detection",
+    "CONFIGURE": "Configure",
+    "NO_CAMERAS": "No cameras configured",
+    "ADD_FIRST_CAMERA": "Add your first camera to start monitoring",
+    "ADD_CAMERA": "Add Camera"
+  },
+  "SETTINGS": {
+    "TITLE": "Configuration",
+    "VIDEO": "Video",
+    "DETECTION": "Detection",
+    "RESOLUTION": "Resolution",
+    "NIGHT_VISION": "Night Vision",
+    "MOTION_DETECTION": "Motion Detection",
+    "HIGH": "High",
+    "LOW": "Low",
+    "CAMERA_NOT_FOUND": "Camera not found"
+  },
+  "COMMON": {
+    "LOADING": "Loading...",
+    "BACK": "Back"
   }
 }
