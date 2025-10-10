@@ -1,0 +1,141 @@
+.home-component {
+  display: flex;
+  flex-direction: column;
+  background-color: #D9E5E8;
+  gap: 2rem;
+  padding: 2rem;
+  font-family: "Inter", sans-serif;
+}
+
+/* ---------- TÍTULO PRINCIPAL ---------- */
+.home-component > section > h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* ---------- BLOQUE SAFETY ---------- */
+.safety {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff8f8;
+  border: 2px solid #fdd;
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  gap: 2rem; /* separa el texto del svg */
+}
+
+/* Contenedor del texto */
+.safety span {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Texto */
+.safety h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #d32f2f;
+  margin: 0 0 0.5rem 0;
+}
+
+.safety p {
+  margin: 0;
+  color: #333;
+  font-size: 1rem;
+}
+
+/* Ícono */
+.safety svg {
+  width: 80px;
+  height: 80px;
+  fill: #d32f2f;
+  flex-shrink: 0;
+}
+
+/* Responsivo (para pantallas pequeñas) */
+@media (max-width: 768px) {
+  .safety {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .safety svg {
+    margin-top: 1rem;
+  }
+}
+
+
+/* ---------- BLOQUE OPCIONES (CUADRÍCULA) ---------- */
+.options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .options {
+    grid-template-columns: 1fr;
+  }
+}
+
+.options > div {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  text-align: center;
+  padding: 1.2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.options > div:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ---------- CONTENEDOR DE ÍCONO ---------- */
+.options > div > div {
+  background-color: #e3f2fd; /* azul claro por defecto */
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+/* ---------- ESTILOS INDIVIDUALES ---------- */
+.options svg {
+  width: 48px;
+  height: 48px;
+}
+
+/* Íconos específicos */
+.options div:nth-child(1) svg {
+  stroke: #03a9f4; /* cámaras */
+}
+
+.options div:nth-child(2) svg {
+  stroke: #6a1b9a; /* comunidad */
+}
+
+.options div:nth-child(3) svg {
+  fill: #d32f2f; /* alertas */
+}
+
+.options div:nth-child(4) svg {
+  stroke: #0288d1; /* sensores */
+}
+
+/* ---------- TEXTOS DE SUBTÍTULOS ---------- */
+.options h3,
+.options div:not(:first-child):not(:last-child) {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+}

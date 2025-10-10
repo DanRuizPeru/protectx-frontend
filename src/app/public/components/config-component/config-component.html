@@ -1,0 +1,48 @@
+<section class="home-component">
+  <section class="options">
+    <div (click)="goToEditProfile()">
+      <div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+             stroke-linejoin="round"
+             class="icon icon-tabler icons-tabler-outline icon-tabler-user-search">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"/>
+          <path d="M6 21v-2a4 4 0 0 1 4 -4h1.5"/>
+          <path d="M18 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/>
+          <path d="M20.2 20.2l1.8 1.8"/>
+        </svg>
+      </div>
+      <span>{{ 'settings.profile' | translate }}</span>
+    </div>
+
+    <div (click)="goToAssistance()">
+      <div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+             viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             class="icon icon-tabler icons-tabler-outline icon-tabler-info-octagon">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path
+            d="M12.802 2.165l5.575 2.389c.48 .206 .863 .589 1.07 1.07l2.388 5.574c.22 .512 .22 1.092 0 1.604l-2.389 5.575c-.206 .48 -.589 .863 -1.07 1.07l-5.574 2.388c-.512 .22 -1.092 .22 -1.604 0l-5.575 -2.389a2.036 2.036 0 0 1 -1.07 -1.07l-2.388 -5.574a2.036 2.036 0 0 1 0 -1.604l2.389 -5.575c.206 -.48 .589 -.863 1.07 -1.07l5.574 -2.388a2.036 2.036 0 0 1 1.604 0z"/>
+          <path d="M12 9h.01"/>
+          <path d="M11 12h1v4h1"/>
+        </svg>
+      </div>
+      <span>{{ 'settings.suport' | translate }}</span>
+    </div>
+
+    <div>
+      <div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+             viewBox="0 0 24 24" fill="currentColor"
+             class="icon icon-tabler icons-tabler-filled icon-tabler-shield-lock">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path
+            d="M11.998 2l.118 .007l.059 .008l.061 .013l.111 .034a.993 .993 0 0 1 .217 .112l.104 .082l.255 .218a11 11 0 0 0 7.189 2.537l.342 -.01a1 1 0 0 1 1.005 .717a13 13 0 0 1 -9.208 16.25a1 1 0 0 1 -.502 0a13 13 0 0 1 -9.209 -16.25a1 1 0 0 1 1.005 -.717a11 11 0 0 0 7.531 -2.527l.263 -.225l.096 -.075a.993 .993 0 0 1 .217 -.112l.112 -.034a.97 .97 0 0 1 .119 -.021l.115 -.007zm.002 7a2 2 0 0 0 -1.995 1.85l-.005 .15l.005 .15a2 2 0 0 0 .995 1.581v1.769l.007 .117a1 1 0 0 0 1.993 -.117l.001 -1.768a2 2 0 0 0 -1.001 -3.732z"/>
+        </svg>
+      </div>
+      <span>{{ 'settings.security' | translate }}</span>
+    </div>
+  </section>
+</section>

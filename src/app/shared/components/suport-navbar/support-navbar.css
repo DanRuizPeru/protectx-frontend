@@ -1,0 +1,87 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #FFFFFF; /* mismo fondo que tu UserLayout */
+  color: black;
+  padding: 0.75rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* separación entre logo y texto */
+}
+
+.logo {
+  height: 60px;
+  width: auto;
+}
+
+h2 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+}
+nav {
+  display: flex;
+  gap: 1.5rem; /* separación entre los enlaces */
+  margin-left: 2rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* efecto hover elegante */
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 2px;
+  background-color: #007bff;
+  transition: width 0.3s ease;
+}
+
+nav a:hover {
+  color: #007bff;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+}
+
+.logout-btn {
+  background-color: #e63946;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 1rem;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.logout-btn:hover {
+  background-color: #b71c1c;
+  transform: scale(1.05);
+}
