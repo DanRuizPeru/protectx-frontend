@@ -41,6 +41,13 @@
       "password": "momoayase",
       "email": "ysoy@gmail.com",
       "id": 6
+    },
+    {
+      "name": "Dan",
+      "username": "dan04",
+      "password": "123456",
+      "email": "dan@gmail.com",
+      "id": 7
     }
   ],
   "cameras": [
@@ -68,7 +75,7 @@
       "id": 3,
       "name": "Cam 03",
       "status": "offline",
-      "resolution": "high",
+      "resolution": "low",
       "nightVision": true,
       "motionDetection": false,
       "lastRecording": "2024-01-14T18:45:00Z",

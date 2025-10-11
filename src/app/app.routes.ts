@@ -8,6 +8,7 @@ import { BaseLayout } from './public/presentation/views/base-leyout/base-layout'
 import { SupportLayout } from './public/presentation/views/support-layout/support-layout';
 import { FrequentQuestions } from './public/components/frequent-questions/frequent-questions';
 import { HumanSuport } from './public/components/human-suport/human-suport';
+import { CamerasDashboardComponent } from './cameras/presentation/views/cameras-dashboard/cameras-dashboard.component';
 
 
 export const routes: Routes = [
@@ -28,6 +29,7 @@ export const routes: Routes = [
     component: BaseLayout,
     children: [
       { path: 'home', component: HomeComponent },
+      { path: 'camaras', component: CamerasDashboardComponent},
       { path: 'settings', component: ConfigComponent },
     ],
   },
