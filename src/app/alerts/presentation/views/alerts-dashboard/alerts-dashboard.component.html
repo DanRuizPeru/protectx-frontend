@@ -1,0 +1,58 @@
+<div class="alerts-dashboard">
+  <header class="dashboard-header">
+    <h1>{{ 'alerts.title' | translate }}</h1>
+  </header>
+
+  @if (loading()) {
+    <div class="loading-spinner">
+      <p>{{ 'common.loading' | translate }}</p>
+    </div>
+  }
+
+  @if (error()) {
+    <div class="error-message">
+      <p>{{ error() }}</p>
+    </div>
+  }
+
+  @if (!loading() && !error()) {
+    <div class="alerts-container">
+      @if (alerts().length === 0) {
+        <div class="no-alerts">
+          <p>{{ 'alerts.noAlerts' | translate }}</p>
+        </div>
+      } @else {
+        <div class="alerts-grid">
+          @for (alert of alerts(); track alert.id) {
+            <div class="alert-card" [class]="getSeverityClass(alert)">
+              <div class="alert-header">
+                <span class="severity-icon">{{ getSeverityIcon(alert) }}</span>
+                <h3>{{ alert.type }}</h3>
+                <span class="severity-badge">{{ alert.severity }}</span>
+              </div>
+              <div class="alert-body">
+                <p class="alert-message">{{ alert.message }}</p>
+                <div class="alert-details">
+                  <span class="detail-item">
+                    <strong>{{ 'alerts.location' | translate }}:</strong> {{ alert.location }}
+                  </span>
+                  <span class="detail-item">
+                    <strong>{{ 'alerts.date' | translate }}:</strong> {{ alert.date }}
+                  </span>
+                  <span class="detail-item">
+                    <strong>{{ 'alerts.time' | translate }}:</strong> {{ alert.time }}
+                  </span>
+                </div>
+              </div>
+              <div class="alert-actions">
+                <button class="btn-delete" (click)="deleteAlert(alert.id)">
+                  {{ 'common.delete' | translate }}
+                </button>
+              </div>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  }
+</div>

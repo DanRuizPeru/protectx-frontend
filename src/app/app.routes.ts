@@ -9,6 +9,7 @@ import { SupportLayout } from './public/presentation/views/support-layout/suppor
 import { FrequentQuestions } from './public/components/frequent-questions/frequent-questions';
 import { HumanSuport } from './public/components/human-suport/human-suport';
 import { CamerasDashboardComponent } from './cameras/presentation/views/cameras-dashboard/cameras-dashboard.component';
+import { AlertsDashboardComponent } from './alerts/presentation/views/alerts-dashboard/alerts-dashboard.component';
 
 
 export const routes: Routes = [
@@ -30,6 +31,7 @@ export const routes: Routes = [
     children: [
       { path: 'home', component: HomeComponent },
       { path: 'camaras', component: CamerasDashboardComponent},
+      { path: 'alertas', component: AlertsDashboardComponent},
       { path: 'settings', component: ConfigComponent },
     ],
   },
@@ -54,6 +56,11 @@ export const routes: Routes = [
     path: 'cameras/:id/config',
     loadComponent: () => import('./cameras/presentation/views/camera-settings/camera-settings.component')
       .then(c => c.CameraSettingsComponent)
+  },
+  {
+    path: 'alerts',
+    loadComponent: () => import('./alerts/presentation/views/alerts-dashboard/alerts-dashboard.component')
+      .then(c => c.AlertsDashboardComponent)
   },
 
 

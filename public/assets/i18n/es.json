@@ -102,6 +102,18 @@
     "CAMERA_NOT_FOUND": "Cámara no encontrada"
   },
   "COMMON": {
-    "BACK": "Regresar"
+    "BACK": "Regresar",
+    "DELETE": "Eliminar"
+  },
+  "alerts": {
+    "title": "Alertas",
+    "noAlerts": "No se encontraron alertas",
+    "location": "Ubicación",
+    "date": "Fecha",
+    "time": "Hora"
+  },
+  "common": {
+    "loading": "Cargando...",
+    "delete": "Eliminar"
   }
 }
