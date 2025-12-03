@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit{
   user: any = null;
 
   ngOnInit(): void {
-    const storedUser = localStorage.getItem('user'); // el nombre de la clave puede variar
+    const storedUser = localStorage.getItem('user');
     if (storedUser) {
       this.user = JSON.parse(storedUser);
       console.log('Usuario cargado:', this.user);

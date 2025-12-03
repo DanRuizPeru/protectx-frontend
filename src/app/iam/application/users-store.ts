@@ -1,127 +1,70 @@
-import { Injectable } from '@angular/core';
-
-import {computed, Signal, signal} from '@angular/core';
-import { User } from '../domain/model/user.entity';
+import { Injectable, signal } from '@angular/core';
 import { IamApi } from '../infrastructure/iam-api';
-import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
-import {retry} from 'rxjs';
+import { Router } from '@angular/router';
+import { tap, catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
+import { User } from '../domain/model/user.entity';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersStore {
-  private readonly usersSignal = signal<User[]>([]);
-  readonly users = this.usersSignal.asReadonly();
+
+  private readonly userSignal = signal<User | null>(this.getUserFromStorage());
+  readonly currentUser = this.userSignal.asReadonly();
 
   private readonly loadingSignal = signal<boolean>(false);
   readonly loading = this.loadingSignal.asReadonly();
 
-  private readonly errorSignal = signal<string | null>(null);
-  readonly error = this.errorSignal.asReadonly();
+  constructor(private iamApi: IamApi, private router: Router) {}
 
-  readonly userCount = computed(() => this.users().length);
-
-  constructor(private readonly iamApi: IamApi) {
-    this.loadUsers();
-  }
-
-
-  /**
- * Adds a new user.
- * @param user - The user to add.
- */
-  addUsers(user: User): void {
+  addUsers(user: User) {
     this.loadingSignal.set(true);
-    this.errorSignal.set(null);
-    this.iamApi.createUser(user).pipe(retry(2)).subscribe({
-      next: createdUser => {
-        this.usersSignal.update(users => [...users, createdUser]);
+    return this.iamApi.createUser(user).pipe(
+      tap(response => {
         this.loadingSignal.set(false);
-      },
-      error: err => {
-        this.errorSignal.set(this.formatError(err, 'Failed to create category'));
+        console.log('✅ Registro exitoso en Backend:', response);
+      }),
+      catchError(error => {
         this.loadingSignal.set(false);
-      }
-    });
-  }
-
-    /**
-   * Updates an existing category.
-   * @param updatedUser - The category to update.
-   */
-  updateUser(updatedUser: User): void {
-    this.loadingSignal.set(true);
-    this.errorSignal.set(null);
-    this.iamApi.updateUser(updatedUser).pipe(retry(2)).subscribe({
-      next: user => {
-        this.usersSignal.update(users =>
-          users.map(c => c.id === user.id ? user : c)
-        );
-        this.loadingSignal.set(false);
-      },
-      error: err => {
-        this.errorSignal.set(this.formatError(err, 'Failed to update category'));
-        this.loadingSignal.set(false);
-      }
-    });
-  }
-
-  /**
-   * Deletes a category by ID.
-   * @param id - The ID of the category to delete.
-   */
-  deleteUser(id: number): void {
-    this.loadingSignal.set(true);
-    this.errorSignal.set(null);
-    this.iamApi.deleteUser(id).pipe(retry(2)).subscribe({
-      next: () => {
-        this.usersSignal.update(users => users.filter(c => c.id !== id));
-        this.loadingSignal.set(false);
-      },
-      error: err => {
-        this.errorSignal.set(this.formatError(err, 'Failed to delete category'));
-        this.loadingSignal.set(false);
-      }
-    });
-  }
-
-  /**
-   * Loads all categories from the API.
-   */
-  private loadUsers(): void {
-    this.loadingSignal.set(true);
-    this.errorSignal.set(null);
-    this.iamApi.getUsers().pipe(takeUntilDestroyed()).subscribe({
-      next: users => {
-        this.usersSignal.set(users);
-        this.loadingSignal.set(false);
-      },
-      error: err => {
-        this.errorSignal.set(this.formatError(err, 'Failed to load categories'));
-        this.loadingSignal.set(false);
-      }
-    });
-  }
-
-  /**
-   * Formats error messages for user-friendly display.
-   * @param error - The error object.
-   * @param fallback - The fallback error message.
-   * @returns A formatted error message.
-   */
-  private formatError(error: any, fallback: string): string {
-    if (error instanceof Error) {
-      return error.message.includes('Resource not found') ? `${fallback}: Not found` : error.message;
-    }
-    return fallback;
-  }
-
-  // metodo para login
-  findUserByCredentials(username: string, password: string): User | undefined {
-    const user = this.users().find(
-      u => u.username === username && u.password === password
+        console.error('❌ Error en registro:', error);
+        return throwError(() => error);
+      })
     );
-    return user;
   }
 
+  login(username: string, password: string) {
+    this.loadingSignal.set(true);
+    // Nota: Pasamos un objeto { username, password } porque así lo espera el método login de IamApi
+    return this.iamApi.login({ username, password }).pipe(
+      tap((response: any) => {
+        this.loadingSignal.set(false);
+        console.log('✅ Login exitoso. Guardando sesión...');
+
+        localStorage.setItem('token', response.token);
+        localStorage.setItem('user', JSON.stringify(response.user));
+
+        this.userSignal.set(response.user);
+
+        this.router.navigate(['/home']);
+      }),
+      catchError(error => {
+        this.loadingSignal.set(false);
+        console.error('❌ Error en login:', error);
+        return throwError(() => error);
+      })
+    );
   }
+
+  logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.userSignal.set(null);
+    this.router.navigate(['/login']);
+  }
+
+  private getUserFromStorage(): User | null {
+    const userStr = localStorage.getItem('user');
+    return userStr ? JSON.parse(userStr) : null;
+  }
+}

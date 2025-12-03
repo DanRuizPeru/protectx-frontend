@@ -1,14 +1,14 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Leanne Graham",
       "username": "LGraham",
       "password": "admin123",
       "email": "LGraham@gmail.com"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Ervin Howell",
       "username": "EHowell",
       "password": "admin123",
@@ -19,40 +19,47 @@
       "username": "DRuiz",
       "password": "opensource",
       "email": "druiz@gmail.com",
-      "id": 3
+      "id": "3"
     },
     {
       "name": "Nicole",
       "username": "NicoCape",
       "password": "obsidiana",
       "email": "nicape@gmail.com",
-      "id": 4
+      "id": "4"
     },
     {
       "name": "Lesb",
       "username": "lisbon",
       "password": "lisbon",
       "email": "lisbon@gmail.com",
-      "id": 5
+      "id": "5"
     },
     {
       "name": "Dani",
       "username": "Okarun",
       "password": "momoayase",
       "email": "ysoy@gmail.com",
-      "id": 6
+      "id": "6"
     },
     {
       "name": "Dan",
       "username": "dan04",
       "password": "123456",
       "email": "dan@gmail.com",
-      "id": 7
+      "id": "7"
+    },
+    {
+      "id": "2324",
+      "name": "Javier",
+      "username": "Javier123",
+      "password": "123456",
+      "email": "javier@gmail.com"
     }
   ],
   "cameras": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Cam 01",
       "status": "online",
       "resolution": "high",
@@ -62,7 +69,7 @@
       "location": "Entrada Principal"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Cam 02",
       "status": "recording",
       "resolution": "low",
@@ -72,7 +79,7 @@
       "location": "Sala de Estar"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Cam 03",
       "status": "offline",
       "resolution": "low",

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule, FormGroup, FormBuilder } from '@angular/forms';
-import { User } from '../../domain/model/user.entity';
+import { FormsModule, ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UsersStore } from '../../application/users-store';
 import { TranslateModule, TranslatePipe } from '@ngx-translate/core';
 import { Router, RouterLink } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login-form',
@@ -22,31 +22,30 @@ export class LoginForm {
     private router: Router
   ) {
     this.loginForm = this.fb.group({
-      username: [''],
-      password: ['']
+      username: ['', Validators.required],
+      password: ['', Validators.required]
     });
   }
 
-  login(username: string, password: string): void {
-    const user = this.ust.findUserByCredentials(username, password);
-
-    if (user) {
-      console.log('✅ Usuario encontrado:', user);
-      localStorage.setItem('user', JSON.stringify(user));
-
-      // Verificación rápida
-      const storedUser = localStorage.getItem('user');
-      console.log('📦 Usuario guardado:', storedUser ? JSON.parse(storedUser) : null);
-
-      // 🔵 Redirigir al home solo si todo fue bien
-      this.router.navigate(['/home']);
-    } else {
-      alert('❌ Usuario o contraseña incorrectos');
-    }
-  }
-
   onSubmit(): void {
-    const { username, password } = this.loginForm.value;
-    this.login(username, password);
+    if (this.loginForm.valid) {
+      const { username, password } = this.loginForm.value;
+
+      this.ust.login(username, password).subscribe({
+        next: () => {
+          console.log('Login flow completed');
+        },
+        error: (err) => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Usuario o contraseña incorrectos',
+            confirmButtonColor: '#d33'
+          });
+        }
+      });
+    } else {
+      this.loginForm.markAllAsTouched();
+    }
   }
 }

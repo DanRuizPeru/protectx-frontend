@@ -19,7 +19,6 @@ export class UserLayout {
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe((event: any) => {
-      // Si estás en /signin, muestra el botón
       this.showBackButton = event.url === '/signin';
     });
   }

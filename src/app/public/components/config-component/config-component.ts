@@ -14,7 +14,7 @@ export class ConfigComponent {
   constructor(private router: Router) {}
 
   goToEditProfile(): void {
-    this.router.navigate(['/edit-profile']); // 👈 esto ahora carga la vista sola
+    this.router.navigate(['/edit-profile']);
   }
 
   goToAssistance(): void {
