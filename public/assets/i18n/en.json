@@ -108,10 +108,14 @@
     "noAlerts": "No alerts found",
     "location": "Location",
     "date": "Date",
-    "time": "Time"
+    "time": "Time",
+    "addNew": "New Alert",
+    "newAlert": "New Alert"
   },
   "common": {
     "loading": "Loading...",
-    "delete": "Delete"
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "save": "Save"
   }
 }

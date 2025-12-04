@@ -110,10 +110,14 @@
     "noAlerts": "No se encontraron alertas",
     "location": "Ubicación",
     "date": "Fecha",
-    "time": "Hora"
+    "time": "Hora",
+    "addNew": "Nueva Alerta",
+    "newAlert": "Nueva Alerta"
   },
   "common": {
     "loading": "Cargando...",
-    "delete": "Eliminar"
+    "delete": "Eliminar",
+    "cancel": "Cancelar",
+    "save": "Guardar"
   }
 }

@@ -151,3 +151,37 @@
     font-size: 1.5rem;
   }
 }
+
+.add-alert-container {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.alert-form-container {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: #fafafa;
+}
+
+.alert-form {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+
+.alert-form input,
+.alert-form textarea {
+  width: 100%;
+  padding: .5rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.btn-primary, .btn-save {
+  padding: .6rem 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
