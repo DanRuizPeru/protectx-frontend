@@ -1,51 +1,28 @@
 <div class="alerts-dashboard">
-
-  <!-- Header con botón de crear -->
   <header class="dashboard-header">
     <h1>{{ 'alerts.title' | translate }}</h1>
-
-    <button class="btn-create" (click)="openCreateForm()">
-      {{ 'alerts.create' | translate }}
-    </button>
   </header>
 
-  <!-- Formulario modal para crear alerta -->
-  @if (showCreateForm()) {
-    <div class="modal-backdrop">
-      <div class="modal-card">
-        <app-alert-form
-          (save)="saveNewAlert($event)"
-          (cancel)="closeCreateForm()"
-        ></app-alert-form>
-      </div>
-    </div>
-  }
-
-  <!-- Loading -->
   @if (loading()) {
     <div class="loading-spinner">
       <p>{{ 'common.loading' | translate }}</p>
     </div>
   }
 
-  <!-- Errores -->
   @if (error()) {
     <div class="error-message">
       <p>{{ error() }}</p>
     </div>
   }
 
-  <!-- Contenido principal -->
   @if (!loading() && !error()) {
     <div class="alerts-container">
-
       @if (alerts().length === 0) {
         <div class="no-alerts">
           <p>{{ 'alerts.noAlerts' | translate }}</p>
         </div>
       } @else {
         <div class="alerts-grid">
-
           @for (alert of alerts(); track alert.id) {
             <div class="alert-card" [class]="getSeverityClass(alert)">
               <div class="alert-header">
@@ -53,7 +30,6 @@
                 <h3>{{ alert.type }}</h3>
                 <span class="severity-badge">{{ alert.severity }}</span>
               </div>
-
               <div class="alert-body">
                 <p class="alert-message">{{ alert.message }}</p>
                 <div class="alert-details">
@@ -68,7 +44,6 @@
                   </span>
                 </div>
               </div>
-
               <div class="alert-actions">
                 <button class="btn-delete" (click)="deleteAlert(alert.id)">
                   {{ 'common.delete' | translate }}
@@ -76,11 +51,8 @@
               </div>
             </div>
           }
-
         </div>
       }
-
     </div>
   }
-
 </div>
